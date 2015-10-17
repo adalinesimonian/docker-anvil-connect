@@ -11,7 +11,7 @@ to use nginx or some other reverse proxy to utilize SSL.
 
 ```
 $ docker run -d --name connect-redis vartan/alpine-redis
-$ docker run -d -p 3000:3000/tcp vartan/anvil-connect:0.1.56 \
+$ docker run -d --link connect-redis -p 3000:3000/tcp vartan/anvil-connect:0.1.56 \
     --redis-host connect-redis
 ```
 
