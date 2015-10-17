@@ -9,6 +9,7 @@ before_install:
   - docker build -t vartan/anvil-connect-test -f Dockerfile .
   - docker run -d --name connect-redis vartan/alpine-redis:3.0.5
   - docker run -d --name connect --link connect-redis -p 3000:3000/tcp vartan/anvil-connect-test --redis-host connect-redis
+  - sleep 5
 
 script:
   - ./test.sh
