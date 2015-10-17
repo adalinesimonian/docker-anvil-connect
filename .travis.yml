@@ -20,7 +20,7 @@ after_script:
 
 deploy:
   provider: script
-  script: deploy.sh
+  script: ./deploy.sh
   on:
     tags: true
     branch: master
