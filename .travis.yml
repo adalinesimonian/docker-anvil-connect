@@ -1,0 +1,25 @@
+sudo: required
+
+language: node
+
+services:
+  - docker
+
+before_install:
+  - docker build -t vartan/anvil-connect-test -f Dockerfile .
+  - docker run -d --name connect-redis vartan/alpine-redis:3.0.5
+  - docker run -d --name connect -p 3000:3000/tcp vartan/anvil-connect-test --redis-host connect-redis
+
+script:
+  - ./test.sh
+
+after_script:
+  - docker stop connect connect-redis
+  - docker rm connect connect-redis
+
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    tags: true
+    branch: master
