@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/vsimonian/docker-anvil-connect.svg)](https://travis-ci.org/vsimonian/docker-anvil-connect)
 
-Lightweight Anvil Connect image for Docker using Alpine Linux
+Lightweight [Anvil Connect][anvil-connect] image for Docker using Alpine Linux
 
 ## Try it out
 
@@ -85,5 +85,6 @@ $ docker run -d -p 3000:3000/tcp -v /path/to/secret/folder:/connect/secrets:ro \
 MIT. Based off [the official Redis image][redis-image], which is licensed under a
 BSD-style license.
 
+[anvil-connect]: https://github.com/anvilresearch/connect
 [connect-docs]: https://github.com/anvilresearch/connect-docs
 [redis-image]: https://github.com/docker-library/redis
