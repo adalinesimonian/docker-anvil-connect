@@ -13,6 +13,6 @@
     "mkdirp": "^0.5.1",
     "minimist": "^1.2.0",
     "deep-extend": "^0.4.0",
-    "anvil-connect": "0.1.57"
+    "anvil-connect": "0.1.58"
   }
 }
