@@ -15,7 +15,7 @@ RUN apk add --update ca-certificates curl gnupg && \
     apk del ca-certificates curl gnupg && \
     rm -rf /var/cache/apk/*
 
-ENV ANVIL_CONNECT_VERSION 0.1.56
+ENV ANVIL_CONNECT_VERSION 0.1.57
 ENV NODE_ENV production
 
 COPY runner /usr/src/anvil-connect
