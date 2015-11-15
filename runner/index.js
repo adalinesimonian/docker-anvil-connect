@@ -11,10 +11,13 @@ var nodeEnv = process.env.NODE_ENV || 'development'
 
 function cwd (filePath) { return path.join(process.cwd(), filePath) }
 
-function tryReadJSON (filePath) {
+function tryReadJSON (filePath, deleteAfter) {
   var obj = {}
   try {
     obj = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    if (deleteAfter) {
+      fs.unlinkSync(filePath)
+    }
   } catch (err) {
     if (err.code !== 'ENOENT') {
       throw err
@@ -29,7 +32,7 @@ process.on('SIGTERM', exit)
 process.on('SIGINT', exit)
 
 var config = tryReadJSON(cwd('config.json'))
-deepExtend(config, tryReadJSON(cwd('secrets/secrets.json')))
+deepExtend(config, tryReadJSON(cwd('secrets.json'), true))
 
 if (argv.issuer) { config.issuer = argv.issuer }
 if (argv['client-registration']) {
