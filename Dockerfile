@@ -29,6 +29,8 @@ RUN apk add --update ca-certificates git python make g++ gcc openssl && \
     apk del ca-certificates git python make g++ gcc && \
     rm -rf /var/cache/apk/*
 
+ENV NODE_PATH /usr/lib/node_modules/docker-anvil-connect/node_modules
+
 RUN mkdir /connect && \
     mkdir /connect/keys && \
     mkdir /connect/secrets && \
