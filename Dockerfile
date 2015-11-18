@@ -24,7 +24,6 @@ RUN apk add --update ca-certificates git python make g++ gcc openssl && \
     npm install -g npm && \
     npm install -g /usr/src/anvil-connect && \
     rm -r /usr/src/anvil-connect && \
-    rm -rf /usr/lib/node_modules/npm && \
     rm -rf /root/.npm && \
     apk del ca-certificates git python make g++ gcc && \
     rm -rf /var/cache/apk/*
