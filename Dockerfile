@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:4.2.0
+FROM mhart/alpine-node:5.1.0
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN addgroup -S connect && adduser -S -G connect connect
