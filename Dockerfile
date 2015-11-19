@@ -21,7 +21,6 @@ ENV NODE_ENV production
 COPY runner /usr/src/anvil-connect
 
 RUN apk add --update ca-certificates git python make g++ gcc openssl && \
-    npm install -g npm && \
     npm install -g /usr/src/anvil-connect && \
     rm -r /usr/src/anvil-connect && \
     rm -rf /root/.npm && \
